@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personagens — Animus</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/cinema.css" />
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">Ani<span>mus</span></a>
+      <button class="nav__toggle" type="button" aria-label="Menu"><span></span></button>
+      <ul class="nav__links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="jogos.html">Jogos</a></li>
+        <li><a href="personagens.html">Personagens</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="lore.html">Lore</a></li>
+        <li><a href="hqs.html">HQs</a></li>
+        <li><a href="enciclopedia.html">Enciclopédia</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-hero">
+      <div class="page-hero__media" aria-hidden="true"></div>
+      <div class="page-hero__orbs" aria-hidden="true">
+        <span class="hero__orb hero__orb--1"></span>
+        <span class="hero__orb hero__orb--2"></span>
+        <span class="hero__orb hero__orb--3"></span>
+        <span class="hero__orb hero__orb--4"></span>
+      </div>
+      <div class="container page-hero__content reveal">
+        <p class="hero__kicker">Irmandade</p>
+        <h1>Personagens</h1>
+        <p class="page-hero__lead">Busque por nome ou filtre por facção e era. Biografias direto da Assassin's Creed Wiki.</p>
+      </div>
+    </header>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="toolbar reveal" style="flex-direction:column;align-items:stretch;gap:1rem">
+          <div class="search">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" id="char-search" placeholder="Buscar personagem (ex: Ezio, Basim, Haytham)…" autocomplete="off" />
+          </div>
+
+          <div>
+            <p class="filter-label">Facção</p>
+            <div class="chips" id="faction-chips">
+              <button type="button" class="chip is-active" data-filter="featured">Destaques</button>
+              <button type="button" class="chip" data-filter="assassins">Assassinos</button>
+              <button type="button" class="chip" data-filter="templars">Templários</button>
+              <button type="button" class="chip" data-filter="isu">Isu</button>
+              <button type="button" class="chip" data-filter="mentors">Mentores</button>
+              <button type="button" class="chip" data-filter="masters">Mestres</button>
+              <button type="button" class="chip" data-filter="all">Todos</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="filter-label">Era / ramo</p>
+            <div class="chips" id="era-chips">
+              <button type="button" class="chip" data-filter="levantines">Cruzadas</button>
+              <button type="button" class="chip" data-filter="italians">Renascimento</button>
+              <button type="button" class="chip" data-filter="ottomans">Otomanos</button>
+              <button type="button" class="chip" data-filter="colonials">América colonial</button>
+              <button type="button" class="chip" data-filter="caribbean">Caribe</button>
+              <button type="button" class="chip" data-filter="pirates">Piratas</button>
+              <button type="button" class="chip" data-filter="french">França</button>
+              <button type="button" class="chip" data-filter="british">Britânicos</button>
+              <button type="button" class="chip" data-filter="egyptians">Egito</button>
+              <button type="button" class="chip" data-filter="greeks">Grécia</button>
+              <button type="button" class="chip" data-filter="norse">Vikings</button>
+              <button type="button" class="chip" data-filter="japanese">Japão</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid" id="char-grid"></div>
+        <div style="display:flex;justify-content:center;margin-top:1.75rem">
+          <button type="button" class="btn btn--soft" id="load-more" hidden>Carregar mais</button>
+        </div>
+        <p class="status" id="char-status" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p><strong>Animus</strong> é apenas um guia não oficial feito por fãs. Não é um produto da Ubisoft e não possui vínculo oficial com a empresa.</p>
+      <p>Assassin's Creed e todo o conteúdo da franquia são propriedade da <strong>Ubisoft</strong>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/characters.js"></script>
+</body>
+</html>

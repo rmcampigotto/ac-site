@@ -1,0 +1,297 @@
+/* Timeline page — chronological eras */
+
+.tl-hero.page-hero {
+  min-height: clamp(320px, 48vh, 480px);
+}
+
+.tl-hero::before {
+  display: none;
+}
+
+.tl-hero__note {
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.45);
+  max-width: 48ch;
+  line-height: 1.5;
+}
+
+.tl-nav-wrap {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.tl-nav {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0.85rem 0;
+  scrollbar-width: none;
+}
+
+.tl-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.tl-nav a {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.85rem;
+  border-radius: 980px;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  transition:
+    background 0.3s var(--ease),
+    color 0.3s var(--ease),
+    border-color 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.tl-nav a:hover {
+  color: #fff;
+  border-color: var(--line);
+  transform: translateY(-1px);
+}
+
+.tl-nav a.is-active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: transparent;
+}
+
+.tl-track {
+  position: relative;
+  padding: 2.5rem 0 5rem;
+}
+
+.tl-track::before {
+  content: "";
+  position: absolute;
+  left: 1.15rem;
+  top: 0.5rem;
+  bottom: 3rem;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent) 0%,
+    rgba(196, 165, 116, 0.55) 35%,
+    rgba(61, 126, 166, 0.4) 65%,
+    var(--line) 100%
+  );
+}
+
+.tl-era {
+  position: relative;
+  padding: 0 0 3.75rem 3.5rem;
+  scroll-margin-top: calc(var(--nav-h) + 4.5rem);
+}
+
+.tl-era::before {
+  content: "";
+  position: absolute;
+  left: 0.72rem;
+  top: 0.4rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--era-accent, var(--accent));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--era-accent, var(--accent)) 20%, transparent);
+  z-index: 1;
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease);
+}
+
+.tl-era.is-inview::before {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--era-accent, var(--accent)) 28%, transparent);
+}
+
+.tl-era__years {
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.tl-era__era {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--era-accent, var(--accent));
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.tl-era h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.8vw, 2.65rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-bottom: 0.9rem;
+}
+
+.tl-era__summary {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 54ch;
+  margin-bottom: 1.35rem;
+  line-height: 1.55;
+}
+
+.tl-era__games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.35rem;
+}
+
+.tl-era__games span {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 980px;
+  background: color-mix(in srgb, var(--era-accent, var(--accent)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--era-accent, var(--accent)) 28%, var(--line));
+  color: var(--ink-soft);
+}
+
+.tl-era__box {
+  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--era-accent, var(--accent)) 12%, #121216),
+      #121216
+    );
+  padding: 1.35rem 1.45rem;
+  max-width: 560px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  transform: translateY(10px);
+  opacity: 0.85;
+  transition: transform 0.7s var(--ease-out), opacity 0.7s var(--ease-out);
+}
+
+.tl-era.is-inview .tl-era__box {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tl-era__box h3 {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.tl-era__box ul {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.tl-era__box li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.tl-era__box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--era-accent, var(--accent));
+}
+
+.tl-footer-cta {
+  padding: 0 0 5rem;
+  text-align: center;
+}
+
+.tl-footer-cta p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.tl-footer-cta .btn {
+  margin: 0 0.35rem 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .tl-track::before {
+    left: 50%;
+    margin-left: -1px;
+  }
+
+  .tl-era {
+    width: 50%;
+    padding: 0 2.5rem 4.5rem;
+  }
+
+  .tl-era:nth-child(odd) {
+    margin-left: 0;
+    padding-right: 3.5rem;
+    text-align: right;
+  }
+
+  .tl-era:nth-child(odd) .tl-era__games,
+  .tl-era:nth-child(odd) .tl-era__box {
+    margin-left: auto;
+  }
+
+  .tl-era:nth-child(odd) .tl-era__box li {
+    padding-left: 0;
+    padding-right: 1.15rem;
+  }
+
+  .tl-era:nth-child(odd) .tl-era__box li::before {
+    left: auto;
+    right: 0;
+  }
+
+  .tl-era:nth-child(even) {
+    margin-left: 50%;
+    padding-left: 3.5rem;
+  }
+
+  .tl-era::before {
+    left: auto;
+    right: -7px;
+  }
+
+  .tl-era:nth-child(even)::before {
+    left: -7px;
+    right: auto;
+  }
+
+  .tl-era:nth-child(odd)::before {
+    right: -7px;
+    left: auto;
+  }
+}
+
+@media (max-width: 899px) {
+  .tl-track::before {
+    left: 0.65rem;
+  }
+
+  .tl-era {
+    padding-left: 2.5rem;
+  }
+
+  .tl-era::before {
+    left: 0.25rem;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A história de Assassin's Creed contada como crônica — do Isu ao presente. Guia de fãs; conteúdo © Ubisoft." />
+  <title>Lore — Animus</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/cinema.css" />
+  <link rel="stylesheet" href="css/lore.css" />
+</head>
+<body class="page-lore">
+  <div class="progress" aria-hidden="true"></div>
+  <div class="tale-readbar" id="tale-readbar" aria-hidden="true"></div>
+
+  <div class="tale-ambient" aria-hidden="true">
+    <div class="tale-ambient__fog tale-ambient__fog--a"></div>
+    <div class="tale-ambient__fog tale-ambient__fog--b"></div>
+    <div class="tale-ambient__fog tale-ambient__fog--c"></div>
+    <div class="tale-ambient__ember"></div>
+    <div class="tale-ambient__ash" id="tale-ash"></div>
+    <div class="tale-ambient__glyphs" id="tale-glyphs"></div>
+    <div class="tale-ambient__vignette"></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">Ani<span>mus</span></a>
+      <button class="nav__toggle" type="button" aria-label="Menu"><span></span></button>
+      <ul class="nav__links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="jogos.html">Jogos</a></li>
+        <li><a href="personagens.html">Personagens</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="lore.html">Lore</a></li>
+        <li><a href="hqs.html">HQs</a></li>
+        <li><a href="enciclopedia.html">Enciclopédia</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-hero chronicle-hero">
+      <div class="page-hero__media" aria-hidden="true"></div>
+      <div class="page-hero__orbs" aria-hidden="true">
+        <span class="hero__orb hero__orb--1"></span>
+        <span class="hero__orb hero__orb--2"></span>
+        <span class="hero__orb hero__orb--3"></span>
+        <span class="hero__orb hero__orb--4"></span>
+      </div>
+      <div class="container page-hero__content reveal">
+        <p class="hero__kicker">Crônica</p>
+        <h1>A guerra que nunca acaba</h1>
+        <p class="page-hero__lead">O conto completo — do silêncio dos Isu ao presente que ainda sangra. Sem fichas. Só a história.</p>
+        <p class="chronicle__scroll-hint" aria-hidden="true">Desça para continuar</p>
+      </div>
+    </header>
+
+    <div class="chronicle-layout">
+      <nav class="chronicle-toc" id="chronicle-toc" aria-label="Capítulos da crônica"></nav>
+
+      <article class="chronicle">
+        <div class="chronicle__intro reveal">
+          <p class="chronicle__epigraph">“Nada é verdade.<br />Tudo é permitido.”</p>
+        </div>
+
+        <div id="chronicle-root"></div>
+
+        <footer class="chronicle__end reveal">
+          <p class="chronicle__end-mark" aria-hidden="true">△</p>
+          <p>Quer ir além? Abra a <a href="timeline.html">timeline</a> ou busque qualquer nome na <a href="enciclopedia.html">enciclopédia</a>.</p>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p><strong>Animus</strong> é apenas um guia não oficial feito por fãs. Não é um produto da Ubisoft e não possui vínculo oficial com a empresa.</p>
+      <p>Assassin's Creed e todo o conteúdo da franquia são propriedade da <strong>Ubisoft</strong>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/lore.js"></script>
+</body>
+</html>

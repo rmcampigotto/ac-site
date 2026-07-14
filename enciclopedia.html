@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enciclopédia — Animus</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/cinema.css" />
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">Ani<span>mus</span></a>
+      <button class="nav__toggle" type="button" aria-label="Menu"><span></span></button>
+      <ul class="nav__links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="jogos.html">Jogos</a></li>
+        <li><a href="personagens.html">Personagens</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="lore.html">Lore</a></li>
+        <li><a href="hqs.html">HQs</a></li>
+        <li><a href="enciclopedia.html">Enciclopédia</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-hero">
+      <div class="page-hero__media" aria-hidden="true"></div>
+      <div class="page-hero__orbs" aria-hidden="true">
+        <span class="hero__orb hero__orb--1"></span>
+        <span class="hero__orb hero__orb--2"></span>
+        <span class="hero__orb hero__orb--3"></span>
+        <span class="hero__orb hero__orb--4"></span>
+      </div>
+      <div class="container page-hero__content reveal">
+        <p class="hero__kicker">Consulta à Wiki</p>
+        <h1>Enciclopédia</h1>
+        <p class="page-hero__lead">Aqui você busca. Nomes, artefatos, locais, facções — direto da Assassin's Creed Wiki. Para ouvir a história contada, vá à Lore.</p>
+      </div>
+    </header>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="toolbar reveal" style="margin-bottom:2rem">
+          <div class="search" style="padding:1rem 1.25rem;min-height:56px">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" id="wiki-search" placeholder="Ex: Apple of Eden, Abstergo, Leonardo da Vinci, Leap of Faith…" autocomplete="off" autofocus />
+          </div>
+        </div>
+
+        <div class="chips reveal" id="quick-chips" style="margin-bottom:1.75rem">
+          <button type="button" class="chip" data-q="Apples of Eden">Apples of Eden</button>
+          <button type="button" class="chip" data-q="Animus">Animus</button>
+          <button type="button" class="chip" data-q="Leap of Faith">Leap of Faith</button>
+          <button type="button" class="chip" data-q="Abstergo Industries">Abstergo</button>
+          <button type="button" class="chip" data-q="Piece of Eden">Piece of Eden</button>
+          <button type="button" class="chip" data-q="The Creed">The Creed</button>
+        </div>
+
+        <div class="grid" id="wiki-grid">
+          <p class="status" style="grid-column:1/-1">Comece digitando para consultar a Assassin's Creed Wiki.</p>
+        </div>
+        <p class="status" id="wiki-status" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p><strong>Animus</strong> é apenas um guia não oficial feito por fãs. Não é um produto da Ubisoft e não possui vínculo oficial com a empresa.</p>
+      <p>Assassin's Creed e todo o conteúdo da franquia são propriedade da <strong>Ubisoft</strong>.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/encyclopedia.js"></script>
+</body>
+</html>
