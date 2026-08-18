@@ -876,7 +876,10 @@ body.has-cursor input {
   gap: 1.1rem;
   padding: 0.5rem max(1.25rem, calc((100vw - var(--max)) / 2));
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
+  scroll-behavior: auto;
+  overscroll-behavior-x: contain;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
   cursor: grab;
