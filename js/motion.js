@@ -172,15 +172,44 @@ export function initRailDrag(selector = ".rail") {
   rail.addEventListener("pointercancel", end);
   rail.addEventListener("lostpointercapture", end);
 
+  bindRailWheel(rail);
+}
+
+/**
+ * Horizontal wheel only: Shift+roda, tilt do mouse ou gesto horizontal no trackpad.
+ * Scroll vertical da página não é interceptado — evita hijack ao passar o mouse no rail.
+ */
+function bindRailWheel(rail) {
   rail.addEventListener(
     "wheel",
-    (e) => {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-      e.preventDefault();
-      rail.scrollLeft += e.deltaY;
+    (event) => {
+      if (event.ctrlKey || event.metaKey) return;
+
+      const wantsHorizontal =
+        event.shiftKey || Math.abs(event.deltaX) > Math.abs(event.deltaY);
+      if (!wantsHorizontal) return;
+
+      const delta = horizontalWheelDelta(event, rail.clientWidth);
+      if (!delta) return;
+
+      const maxScroll = Math.max(0, rail.scrollWidth - rail.clientWidth);
+      const next = Math.min(maxScroll, Math.max(0, rail.scrollLeft + delta));
+      if (next === rail.scrollLeft) return;
+
+      event.preventDefault();
+      rail.scrollLeft = next;
     },
     { passive: false }
   );
+}
+
+function horizontalWheelDelta(event, pageSize) {
+  const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? pageSize : 1;
+  const pixels =
+    event.shiftKey && Math.abs(event.deltaY) >= Math.abs(event.deltaX)
+      ? event.deltaY
+      : event.deltaX;
+  return pixels * scale;
 }
 
 export function initRailControls(railSelector = "#games-rail", prevId = "rail-prev", nextId = "rail-next") {
